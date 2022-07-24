@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.8;
 
-contract LeaderboardV1 {
+contract TetrisLeaderboardV1 {
     // The address that can call admin functions
-    address internal admin;
+    address internal admin = 0xE3ff24a97BFB65CAdEF30F6Ad19a6EA7E6F6149d;
 
     // How many highscores should be recorded
     uint8 constant LEADERBOARD_LENGTH = 10;
@@ -17,10 +17,6 @@ contract LeaderboardV1 {
 
     // Stores the top [LEADERBOARD_LENGTH] highest scores where index 0 is the highest score
     mapping(uint256 => Score) public leaderboard;
-
-    constructor(address _admin) {
-        admin = _admin;
-    }
 
     // Retrieves and returns a tuple of the current leaderboard players, scores and timestamps
     function getLeaderboard()
